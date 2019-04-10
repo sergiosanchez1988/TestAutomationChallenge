@@ -1,0 +1,18 @@
+package WikiTestRUnner;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+public class TestSuite {	
+    @RunWith(Suite.class)
+
+    @Suite.SuiteClasses({
+            Apple.class,
+            Pear.class
+            CreateAccountKO.class
+    })
+
+    public class JunitTestSuite {
+    }
+
+}

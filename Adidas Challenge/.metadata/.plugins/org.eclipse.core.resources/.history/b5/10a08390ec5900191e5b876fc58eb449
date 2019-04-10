@@ -1,0 +1,20 @@
+package WeatherTestRunner;
+
+importar org.junit.runner.RunWith;		
+importar cucumber.api.CucumberOptions;		
+import cucumber.api.junit.Cucumber;		
+
+@RunWith (Cucumber.class)				 
+@CucumberOptions (features = "Features", glue = {"StepDefinition"})	
+
+public class Runner {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+
+

@@ -1,0 +1,85 @@
+package Wiki;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class Pear {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		//System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");	
+		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+
+		// Creo el WebDriver (el objeto que contiene lo necesario para controlar el browser)	
+		//WebDriver driver = new FirefoxDriver();
+		WebDriver driver = new ChromeDriver();
+
+		//Maximizo mi browser
+		driver.manage().window().maximize();  
+		
+		// Le indico al webdriver la URL 
+		driver.get("https://en.wiktionary.org/");
+		
+		// Log in SergioSanchez1988 87654321
+		WebElement login = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/ul/li[6]/a"));
+		login.click();
+		tiempoDelay(3000);
+				
+		WebElement user = driver.findElement(By.xpath("//*[@id=\"wpName1\"]"));
+		user.sendKeys("SergioSanchez1988");
+		tiempoDelay(3000);;
+				
+		WebElement pass = driver.findElement(By.xpath("//*[@id=\"wpPassword1\"]"));
+		pass.sendKeys("87654321");
+		tiempoDelay(3000);
+				
+		WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"wpLoginAttempt\"]"));
+		loginButton.click();
+		tiempoDelay(3000);
+		
+		//Busco la palabra 'pear' usando WebElement
+		WebElement search = driver.findElement(By.xpath("//*[@id=\"bodySearchInput0.838855444452\"]"));
+		search.sendKeys("pear");
+		
+		//Sleep
+		tiempoDelay(5000);
+		
+		// Clico en el botón de la lupa
+		WebElement lookupButton = driver.findElement(By.name("go"));
+		lookupButton.click();
+		
+		//Sleep
+		tiempoDelay(5000);
+			
+		//String text = driver.findElement(By.cssSelector(".mw-parser-output > ol:nth-child(12) > li:nth-child(1)")).getText();
+		//assertTrue(text.contains("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates."));
+	    //System.out.println("Apple " + text);
+	     
+	    // Comprobación de que la definición es correcta
+		WebElement definicion = driver.findElement(By.cssSelector(".mw-parser-output > ol:nth-child(13) > li:nth-child(1)"));
+
+		if (!definicion.getText().contains("An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem.")){
+			System.out.println("No aparece la definición correcta");
+			return;
+		}else {
+			System.out.println("La definición de PERA es correcta: "+ definicion.getText());
+			
+		}
+
+		System.out.println("----> Text BUSQUEDA PEAR completado con EXITO!!");
+		
+		// Cierro el browser
+		driver.close();
+
+	}
+	
+    /******     Delay  *******/
+    public static void tiempoDelay(int time) throws InterruptedException {
+        Thread.sleep(time);
+
+}

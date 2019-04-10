@@ -1,0 +1,10 @@
+package Wiki;
+
+public class CreateAccountOK {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

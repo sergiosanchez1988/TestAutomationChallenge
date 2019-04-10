@@ -1,0 +1,12 @@
+Feature: nombre de la funcionalidad que vamos a probar, el título de la prueba.
+Scenario: habrá uno por cada prueba que se quiera especificar para esta funcionalidad.
+Given: acá se marca el contexto, las precondiciones.
+When: se especifican las acciones que se van a ejecutar.
+Then: y acá se especifica el resultado esperado, las validaciones a realizar.
+
+
+Feature: 
+Scenario: 
+Given: 
+When: 
+Then: 

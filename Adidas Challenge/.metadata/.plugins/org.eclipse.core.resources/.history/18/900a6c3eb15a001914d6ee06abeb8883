@@ -1,0 +1,82 @@
+package Wiki;
+
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class CreateAccountOK {
+
+public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
+
+		// Creo el WebDriver (el objeto que contiene lo necesario para controlar el browser)	
+		WebDriver driver = new FirefoxDriver();
+
+		//Maximizo mi browser
+		driver.manage().window().maximize();  
+		
+		// Le indico al webdriver la URL 
+		driver.get("https://en.wiktionary.org/");
+		
+		// Click en 'Create account'
+		WebElement create = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/ul/li[5]/a"));
+		create.click();
+		
+		//Sleep
+		Thread.sleep(3000);
+		
+		// Username
+		WebElement nombre = driver.findElement(By.xpath("//*[@id=\"wpName2\"]"));
+		nombre.sendKeys("Manolo Javier Federico Beltran");	
+		
+		// Password	
+		Thread.sleep(2000);
+		WebElement password = driver.findElement(By.xpath("//*[@id=\"wpPassword2\"]"));
+		password.sendKeys("18061942");
+		
+		// Confirm password
+		Thread.sleep(2000);
+		WebElement repassword = driver.findElement(By.xpath("//*[@id=\"wpRetype\"]"));
+		repassword.sendKeys("18061942");
+		
+		// Email
+		Thread.sleep(2000);
+		WebElement email = driver.findElement(By.xpath("//*[@id=\"wpEmail\"]"));
+		email.sendKeys("manolojavierfedericobeltran@hotmail.com");
+		
+		// Botón 'Create your account'
+		Thread.sleep(2000);
+		WebElement createyouraccount = driver.findElement(By.xpath("//*[@id=\"wpCreateaccount\"]"));
+		createyouraccount.click();
+		
+		//Sleep
+		Thread.sleep(5000);
+		
+		
+		//Usuario registrado de manera correcta 
+		WebElement confirmacion = driver.findElement(By.cssSelector("#pt-logout > a:nth-child(1)"));
+
+		if (!confirmacion.getText().contains("Log out")){
+			System.out.println("La cuenta NO se ha creado correctamente");
+			return;
+		}else {
+			System.out.println("La cuenta NO se ha creado correctamente");
+			
+		}
+
+		System.out.println("Comprobación completada con EXITO!!");
+		
+		
+		// Cierro el browser
+		driver.close();
+	
+		
+		
+
+	}
+
+}

@@ -1,0 +1,47 @@
+package WeatherStepDefinition;
+
+import org.openqa.selenium.By;		
+import org.openqa.selenium.WebDriver;		
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.WebElement;
+
+
+import cucumber.api.java.en.Given;		
+import cucumber.api.java.en.Then;		
+import cucumber.api.java.en.When;	
+
+public class Step {
+	WebDriver driver;
+	
+	    @Given("^Open the Google Chrome and launch the application Weather API$")				
+	    public void open_the_Chrome_and_launch_the_application_Weather_API() throws Throwable							
+	    {	
+	    	System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+	    	driver = new ChromeDriver();
+	    	driver.manage().window().maximize(); 
+	    	driver.get("https://openweathermap.org/");
+	    	
+	        System.out.println("This Step open the Chrome and launch the application.");					
+	    }		
+
+	    @When("^Enter the Username and Password$")					
+	    public void enter_the_Username_and_Password() throws Throwable 	
+	    {		
+	       driver.findElement(By.name("uid")).sendKeys("username12");							
+	       driver.findElement(By.name("password")).sendKeys("password12");	
+	       System.out.println("This step enter the Username and Password on the login page.");					
+	    }		
+
+	    @Then("^The temperature of the city of Zaragoza is displayed$")					
+	    public void The_temperature_of_the_city_of_Zaragoza_is_displayed() throws Throwable 							
+	    {    		
+	        System.out.println("This step click on the Search button.");					
+	    }	
+
+     
+}
+
+	    

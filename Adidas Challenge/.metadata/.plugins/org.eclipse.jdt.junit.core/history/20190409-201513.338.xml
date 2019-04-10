@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Pear (1)" project="SeleniumTA" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="Wiki.Pear" time="52.641" displayname="Pear" uniqueid="[engine:junit-vintage]/[runner:Wiki.Pear]">
+    <testcase name="PearTest" classname="Wiki.Pear" time="52.641" displayname="PearTest" uniqueid="[engine:junit-vintage]/[runner:Wiki.Pear]/[test:PearTest(Wiki.Pear)]"/>
+  </testsuite>
+</testrun>

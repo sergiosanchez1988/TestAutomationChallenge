@@ -1,0 +1,29 @@
+package WeatherStepDefinition;
+
+import cucumber.api.java.en.Given;		
+import cucumber.api.java.en.Then;		
+import cucumber.api.java.en.When;	
+
+public class Step {
+	
+	 	@Given ("^ Abre Firefox y ejecuta la aplicación $")				 
+	    public void open_the_Firefox_and_launch_the_application () lanza Throwable							 
+	    {		 
+	        System.out.println ("This Step abre Firefox y ejecuta la aplicación.");					
+	    }		 
+
+	    @When ("^ Ingrese el nombre de usuario y la contraseña $")					 
+	    public void enter_the_Username_and_Password () lanza Throwable 							 
+	    {		 
+	       System.out.println ("Este paso ingresa el nombre de usuario y la contraseña en la página de inicio de sesión.");					
+
+	    @Then ("^ Restablecer la credencial $")					 
+	    public void Reset_the_credential () lanza Throwable 							 
+	    {    		 
+	        System.out.println ("Este paso, haga clic en el botón Reset.");					
+	    }		
+
+     
+}
+
+	    

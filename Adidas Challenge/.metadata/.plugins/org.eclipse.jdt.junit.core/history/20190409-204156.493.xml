@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="LoginStep" project="WeatherApiTA" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="WeatherStepDefinition.LoginStep" time="29.429">
+    <testcase name="open_the_Google_Chrome_launch_the_application_Weather_API_and_go_to_Sign_in" classname="WeatherStepDefinition.LoginStep" time="29.429"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,51 @@
+package Wiki;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
+
+
+public class TestingLogging {
+	
+	// Log configuration.
+	public Logger createLog(Class<?> classname) {
+		DOMConfigurator.configure("log4j-properties.xml");
+		
+		final Logger logger = Logger.getLogger(classname);
+		
+		return logger;
+	}
+	
+	public void printError(Logger log, String message) {
+		log.error(message);
+	}
+	
+	public void printInfo(Logger log, String message) {
+		log.info(message);
+	}
+	
+	public void printWarm(Logger log, String message) {
+		log.warn(message);
+	}
+	
+	public void printFatal(Logger log, String message) {
+		log.fatal(message);
+	}
+	
+	public void printTrace(Logger log, String message) {
+		log.trace(message);
+	}
+	
+	// Print separator.
+	public void addSeparator(Logger log, int num) {
+		String separator = "-";
+		String caracter = "-";
+		num -= 1;
+		for (int i = 1; i <= num; i++) {
+			separator = separator + caracter;
+		}
+		
+		printInfo(log, separator);
+		
+	}
+	
+}

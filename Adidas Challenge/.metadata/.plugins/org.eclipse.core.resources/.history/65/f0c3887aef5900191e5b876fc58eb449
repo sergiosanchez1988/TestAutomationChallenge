@@ -1,0 +1,5 @@
+Feature: Search weather in Zaragoza city
+Scenario: Verify search button is ok
+Given: Open google chrome and execute the application Weather API
+When: Enter username and password
+Then: The temperature of the city of Zaragoza is displayed

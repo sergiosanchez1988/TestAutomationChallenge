@@ -1,0 +1,62 @@
+package Wiki;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class CreateAccount {
+
+public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
+
+		// Creo el WebDriver (el objeto que contiene lo necesario para controlar el browser)	
+		WebDriver driver = new FirefoxDriver();
+
+		//Maximizo mi browser
+		driver.manage().window().maximize();  
+		
+		// Le indico al webdriver la URL 
+		driver.get("https://en.wiktionary.org/");
+		
+		//Busco la palabra 'apple' usando WebElement
+		WebElement search = driver.findElement(By.id("bodySearchInput0.846286225433"));
+		search.sendKeys("apple");
+		
+		//Sleep
+		Thread.sleep(5000);
+		
+		// Clico en el botón de la lupa
+		WebElement lookupButton = driver.findElement(By.name("go"));
+		lookupButton.click();
+		
+		//Sleep
+		Thread.sleep(5000);
+			
+		//String text = driver.findElement(By.cssSelector(".mw-parser-output > ol:nth-child(12) > li:nth-child(1)")).getText();
+		//assertTrue(text.contains("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates."));
+	    //System.out.println("Apple " + text);
+	     
+	    // Comprobación de que la definición es correcta
+		WebElement confirmacion = driver.findElement(By.cssSelector(".mw-parser-output > ol:nth-child(12) > li:nth-child(1)"));
+
+		if (!confirmacion.getText().contains("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates.")){
+			System.out.println("No aparece la definición correcta");
+			return;
+		}else {
+			System.out.println("La definición de MANZANA es correcta: "+ confirmacion.getText());
+			
+		}
+
+		System.out.println("Comprobación completada con EXITO!!");
+		
+		// Cierro el browser
+		driver.close();
+	
+		
+
+	}
+
+}

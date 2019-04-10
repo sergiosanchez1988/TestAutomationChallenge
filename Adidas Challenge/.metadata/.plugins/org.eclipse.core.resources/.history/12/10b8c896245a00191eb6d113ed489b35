@@ -1,0 +1,71 @@
+package WeatherStepDefinition;
+
+import org.openqa.selenium.By;		
+import org.openqa.selenium.WebDriver;		
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
+
+import cucumber.api.java.en.Given;		
+import cucumber.api.java.en.Then;		
+import cucumber.api.java.en.When;
+import junit.framework.Assert;
+
+
+public class Step {
+	
+	WebDriver driver;	
+	
+	    @Given("^Open the Google Chrome and launch the application Weather API$")				
+	    public void open_the_Chrome_and_launch_the_application_Weather_API() throws Throwable							
+	    {	
+	    	System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+	    	driver = new ChromeDriver();
+	    	driver.manage().window().maximize(); 
+	    	driver.get("https://openweathermap.org/");
+	    	tiempoDelay(4000);
+	    	
+	        System.out.println("This step open Google Chrome and launch the application.");					
+	    }		
+
+	    @When("^Search weather in Zaragoza and press search button$")					
+	    public void search_Weather_in_Zaragoza_and_Press_Search_Button() throws Throwable 	
+	    {		
+	       driver.findElement(By.cssSelector("input.form-control:nth-child(2)")).sendKeys("Zaragoza");		
+	       tiempoDelay(3000);
+	       driver.findElement(By.xpath("//*[@id=\"searchform\"]/button")).click();
+	       tiempoDelay(3000);
+	       driver.findElement(By.cssSelector(".table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > b:nth-child(1) > a:nth-child(1)")).click();		
+	       tiempoDelay(3000);
+	       
+	       System.out.println("This step enter Zaragoza and click Search button");					
+	    }		
+
+	    @Then("^The temperature of the city of Zaragoza is displayed$")		
+	    
+	    public void The_temperature_of_the_city_of_Zaragoza_is_displayed() throws Throwable 							
+	    {   
+	    	WebElement busquedaok = driver.findElement(By.cssSelector(".weather-widget__city-name"));
+	    	try{
+	    		Assert.assertEquals(busquedaok.getText(), "Weather in Zaragoza, ES");
+	    		System.out.println(" --> Busqueda  del "+ busquedaok.getText()+ " ha sido EXITOSA!");
+	     		}catch (Throwable t){
+	     		System.out.println(" --> Busqueda  del "+ busquedaok.getText()+ " NO ha sido EXITOSA!");
+	     			
+	     		}
+	        System.out.println("This step the temperatura of the Zaragoza city is displayed.");	
+	        tiempoDelay(3000);
+	        
+	     // Cierro el browser
+			driver.close();
+	    }	
+	    
+	    /******     Delay  *******/
+	    public static void tiempoDelay(int time) throws InterruptedException {
+	        Thread.sleep(time);
+
+	    }
+	    
+}
+
+	    

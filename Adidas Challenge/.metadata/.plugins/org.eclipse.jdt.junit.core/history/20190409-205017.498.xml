@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Runner" project="WeatherApiTA" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="WeatherTestRunner.Runner" time="94.746">
+    <testsuite name="Feature: Make the login in the application" time="45.011">
+      <testcase name="Verify sign in option is ok" classname="Make the login in the application" time="45.011"/>
+    </testsuite>
+    <testsuite name="Feature: Search weather in Zaragoza city" time="49.735">
+      <testcase name="Verify search button is ok" classname="Search weather in Zaragoza city" time="49.735"/>
+    </testsuite>
+  </testsuite>
+</testrun>

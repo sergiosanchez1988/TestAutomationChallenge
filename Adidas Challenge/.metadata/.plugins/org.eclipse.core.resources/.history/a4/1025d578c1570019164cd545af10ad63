@@ -1,0 +1,79 @@
+package Wiki;
+
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class CreateAccountOK {
+
+public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
+
+		// Creo el WebDriver (el objeto que contiene lo necesario para controlar el browser)	
+		WebDriver driver = new FirefoxDriver();
+
+		//Maximizo mi browser
+		driver.manage().window().maximize();  
+		
+		// Le indico al webdriver la URL 
+		driver.get("https://en.wiktionary.org/");
+		
+		// Click en 'Create account'
+		WebElement create = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/ul/li[5]/a"));
+		create.click();
+		
+		//Sleep
+		Thread.sleep(3000);
+		
+		// Username
+		WebElement nombre = driver.findElement(By.xpath("//*[@id=\"wpName2\"]"));
+		nombre.sendKeys("Manolo Manolo");	
+		
+		// Password	
+		Thread.sleep(2000);
+		WebElement password = driver.findElement(By.xpath("//*[@id=\"wpPassword2\"]"));
+		password.sendKeys("180642");
+		
+		// Confirm password
+		Thread.sleep(2000);
+		WebElement repassword = driver.findElement(By.xpath("//*[@id=\"wpRetype\"]"));
+		repassword.sendKeys("180642");
+		
+		// Email
+		Thread.sleep(2000);
+		WebElement email = driver.findElement(By.xpath("//*[@id=\"wpEmail\"]"));
+		email.sendKeys("manolomanolo@beatles.com");
+		
+		// Botón 'Create your account'
+		Thread.sleep(2000);
+		WebElement createyouraccount = driver.findElement(By.xpath("//*[@id=\"wpCreateaccount\"]"));
+		createyouraccount.click();
+		
+		//Sleep
+		Thread.sleep(5000);
+
+
+		// Usuario ya existe
+				WebElement usuariocreado = driver.findElement(By.cssSelector(".error"));
+				if (!usuariocreado.getText().contains("Username entered already in use. Please choose a different name.")){
+					System.out.println("La cuenta no ha podido crearse correctamente");
+					
+				}else {
+					System.out.println("La cuenta de se ha creado CORRECTAMENTE!");
+										
+				}
+		
+		
+		// Cierro el browser
+		driver.close();
+	
+		
+		
+
+	}
+
+}

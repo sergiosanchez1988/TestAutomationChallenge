@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="WeatherApiTA" project="WeatherApiTA" tests="2" started="2" failures="1" errors="0" ignored="0">
+  <testsuite name="WeatherTestRunner.Runner" time="91.524">
+    <testsuite name="Feature: Make the login in the application" time="45.143">
+      <testcase name="Verify sign in option is ok" classname="Make the login in the application" time="45.143">
+        <failure>java.lang.AssertionError: Test de login NO SUPERADO&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at WeatherStepDefinition.LoginStep.the_login_is_successful(LoginStep.java:61)&#13;
+	at ✽.The login is successful(src/Features/Login.feature:7)&#13;
+&#13;
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="Feature: Search weather in Zaragoza city" time="46.377">
+      <testcase name="Verify search button is ok" classname="Search weather in Zaragoza city" time="46.377"/>
+    </testsuite>
+  </testsuite>
+</testrun>

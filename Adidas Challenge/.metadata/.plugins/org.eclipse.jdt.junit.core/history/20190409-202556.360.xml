@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Runner" project="WeatherApiTA" tests="2" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="WeatherTestRunner.Runner" incomplete="true">
+    <testsuite name="Feature: Make the login in the application" incomplete="true">
+      <testcase name="Verify sign in option is ok" classname="Make the login in the application" incomplete="true"/>
+    </testsuite>
+    <testsuite name="Feature: Search weather in Zaragoza city" incomplete="true">
+      <testcase name="Verify search button is ok" classname="Search weather in Zaragoza city" incomplete="true"/>
+    </testsuite>
+  </testsuite>
+</testrun>

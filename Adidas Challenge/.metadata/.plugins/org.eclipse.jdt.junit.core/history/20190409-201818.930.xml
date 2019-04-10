@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CreateAccountKO (1)" project="SeleniumTA" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="Wiki.CreateAccountKO" time="41.81" displayname="CreateAccountKO" uniqueid="[engine:junit-vintage]/[runner:Wiki.CreateAccountKO]">
+    <testcase name="CreateAccountKOTest" classname="Wiki.CreateAccountKO" time="41.81" displayname="CreateAccountKOTest" uniqueid="[engine:junit-vintage]/[runner:Wiki.CreateAccountKO]/[test:CreateAccountKOTest(Wiki.CreateAccountKO)]"/>
+  </testsuite>
+</testrun>

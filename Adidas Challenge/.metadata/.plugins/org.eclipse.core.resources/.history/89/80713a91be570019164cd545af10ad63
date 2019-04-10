@@ -1,0 +1,101 @@
+package Wiki;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class CreateAccount {
+
+public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
+
+		// Creo el WebDriver (el objeto que contiene lo necesario para controlar el browser)	
+		WebDriver driver = new FirefoxDriver();
+
+		//Maximizo mi browser
+		driver.manage().window().maximize();  
+		
+		// Le indico al webdriver la URL 
+		driver.get("https://en.wiktionary.org/");
+		
+		// Click en 'Create account'
+		WebElement create = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/ul/li[5]/a"));
+		create.click();
+		
+		//Sleep
+		Thread.sleep(3000);
+		
+		// Username
+		WebElement nombre = driver.findElement(By.xpath("//*[@id=\"wpName2\"]"));
+		nombre.sendKeys("Paul Mccartney");
+		
+		
+		
+		// Password	
+		Thread.sleep(2000);
+		WebElement password = driver.findElement(By.xpath("//*[@id=\"wpPassword2\"]"));
+		password.sendKeys("180642");
+		
+		// Confirm password
+		Thread.sleep(2000);
+		WebElement repassword = driver.findElement(By.xpath("//*[@id=\"wpRetype\"]"));
+		repassword.sendKeys("180642");
+		
+		// Email
+		Thread.sleep(2000);
+		WebElement email = driver.findElement(By.xpath("//*[@id=\"wpEmail\"]"));
+		email.sendKeys("paul@beatles.com");
+		
+		// Botón 'Create your account'
+		Thread.sleep(2000);
+		WebElement createyouraccount = driver.findElement(By.xpath("//*[@id=\"wpCreateaccount\"]"));
+		createyouraccount.click();
+		
+		//Sleep
+		Thread.sleep(5000);
+		/**	
+	     
+	    // Comprobación de que la definición es correcta
+		WebElement confirmacion = driver.findElement(By.cssSelector(".mw-parser-output > ol:nth-child(12) > li:nth-child(1)"));
+
+		if (!confirmacion.getText().contains("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates.")){
+			System.out.println("No aparece la definición correcta");
+			return;
+		}else {
+			System.out.println("La definición de MANZANA es correcta: "+ confirmacion.getText());
+			
+		}**/
+
+		// Usuario ya existe
+				WebElement confirmacion = driver.findElement(By.cssSelector(".error"));
+				if (!confirmacion.getText().contains("Username entered already in use. Please choose a different name.")){
+					System.out.println("El nombre es correcto");
+					//return;
+				}else {
+					System.out.println("El nombre ya existe: "+ confirmacion.getText());
+					System.out.println("No se ha podido crear la cuenta!");
+										
+				}
+		
+			// Codigo captcha vacio				
+				WebElement captcha = driver.findElement(By.cssSelector("#mw-input-captchaWord"));
+				if (captcha.getText().isEmpty()){
+					System.out.println("El campo codigo CAPTCHA esta vacio, no se puede crear la cuenta");
+					//return;
+				}else {
+				
+					System.out.println("Codigo CAPTCHA OK!");
+										
+				}
+		
+		// Cierro el browser
+		driver.close();
+	
+		
+
+	}
+
+}

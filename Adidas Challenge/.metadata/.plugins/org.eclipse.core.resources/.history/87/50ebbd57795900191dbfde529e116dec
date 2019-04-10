@@ -1,0 +1,10 @@
+package Wiki;
+
+public class TestingLogging {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

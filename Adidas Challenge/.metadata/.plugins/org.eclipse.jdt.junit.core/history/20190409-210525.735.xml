@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Runner" project="WeatherApiTA" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="WeatherTestRunner.Runner" time="0.001">
+    <testsuite name="Feature: Make the login in the application" time="0.001">
+      <testcase name="Verify sign in option is ok" classname="Make the login in the application" time="0.001">
+        <skipped>cucumber.runtime.junit.UndefinedThrowable: The step "Open the Google Chrome launch the application Weather API and go to Sign in" is undefined&#13;
+&#13;
+cucumber.runtime.junit.UndefinedThrowable: The step "Enter user and password and press login button" is undefined&#13;
+&#13;
+cucumber.runtime.junit.UndefinedThrowable: The step "The login is successful" is undefined&#13;
+&#13;
+</skipped>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

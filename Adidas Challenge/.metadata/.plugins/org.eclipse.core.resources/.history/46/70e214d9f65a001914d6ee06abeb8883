@@ -1,0 +1,78 @@
+package WeatherStepDefinition;
+
+import org.openqa.selenium.By;		
+import org.openqa.selenium.WebDriver;		
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
+
+import cucumber.api.java.en.Given;		
+import cucumber.api.java.en.Then;		
+import cucumber.api.java.en.When;
+
+import static org.junit.Assert.fail;
+import org.junit.Assert;
+
+
+public class LoginStep {
+	
+	WebDriver driver;	
+	
+	    @Given("^Open the Google Chrome launch the application Weather API and go to Sign in$")				
+	    public void open_the_Google_Chrome_launch_the_application_Weather_API_and_go_to_Sign_in() throws Throwable							
+	    {	
+	    	System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+	    	driver = new ChromeDriver();
+	    	driver.manage().window().maximize(); 
+	    	driver.get("https://openweathermap.org/");
+	    	tiempoDelay(4000);
+	    	driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/a[3]")).click();
+	    	tiempoDelay(3000);
+	        System.out.println("This step open Google Chrome, launch the application and go to Sign in.");					
+	    }		
+
+	    @When("^Enter user and password and press login button$")					
+	    public void enter_user_and_password_and_press_login_button() throws Throwable 	
+	    {		
+	       driver.findElement(By.cssSelector("div.input-group:nth-child(3) > input:nth-child(2)")).sendKeys("serginhosanchez@hotmail.com");		
+	       tiempoDelay(3000);
+	       driver.findElement(By.cssSelector("#user_password")).sendKeys("73006351g");		
+	       tiempoDelay(3000);
+	       driver.findElement(By.cssSelector("input.btn:nth-child(7)")).click();
+	       tiempoDelay(3000);
+	       
+	       System.out.println("This step enter Zaragoza and click Search button");					
+	    }		
+
+	    @Then("^The login is successful$")		
+	    
+	    public void the_login_is_successful() throws Throwable 							
+	    {   
+	    	System.out.println("This step shows that login is successful.");	
+	    	WebElement loginok = driver.findElement(By.cssSelector("a.pull-right:nth-child(2)"));
+	    	try{
+	    		Assert.assertEquals(loginok.getText(), "Hello SergioSanchez");
+	    		System.out.println(" --> El login "+ loginok.getText()+ " ha sido EXITOSO!");
+	    		System.out.println(" --> El TEST LOGIN SE HA COMPLETADO CON EXITO");
+	     		}catch (Throwable t){
+	     		System.out.println(" --> El login "+ loginok.getText()+ " NO ha sido EXITOSO!");
+	     		driver.close();
+	 			fail("Test de login NO SUPERADO");
+	 				     			
+	     		}
+	        
+	        tiempoDelay(3000);
+	        
+	     // Cierro el browser
+			driver.close();
+	    }	
+	    
+	    /******     Delay  *******/
+	    public static void tiempoDelay(int time) throws InterruptedException {
+	        Thread.sleep(time);
+
+	    }
+	    
+}
+
+	    
