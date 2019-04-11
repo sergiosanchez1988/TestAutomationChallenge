@@ -42,7 +42,7 @@ public class LoginStep {
 	       driver.findElement(By.cssSelector("input.btn:nth-child(7)")).click();
 	       tiempoDelay(3000);
 	       
-	       System.out.println("This step enter Zaragoza and click Search button");					
+	       System.out.println("This step enter user and password and press login button");					
 	    }		
 	    
 	    @Then("^The login is successful$")		
@@ -52,6 +52,7 @@ public class LoginStep {
 	    	System.out.println("This step shows that login is successful.");	
 	    	WebElement loginok = driver.findElement(By.cssSelector("a.pull-right:nth-child(2)"));
 	    	try{
+	    		// Comprueba que tras logearse aparece el testo "Hello SergioSanchez" en la pantalla
 	    		Assert.assertEquals(loginok.getText(), "Hello SergioSanchez");
 	    		System.out.println(" --> El login "+ loginok.getText()+ " ha sido EXITOSO!");
 	    		System.out.println(" --> El TEST LOGIN SE HA COMPLETADO CON EXITO");
